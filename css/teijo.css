@@ -831,11 +831,7 @@ p {
         z-index: 1; }
 
 .experience-blk {
-  position: relative;
-  perspective: 1000px;
-  -webkit-perspective: 1000px;
-  -o-perspective: 1000px;
-  -moz-perspective: 1000px; }
+  position: relative; }
   .experience-blk__content {
     position: absolute;
     padding: 3rem 0;
@@ -844,41 +840,20 @@ p {
     border: solid 2px #fff;
     width: 80%;
     height: 7rem;
-    transition: transform 2s;
-    -webkit-transition: -webkit-transform 2s;
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-    -o-transform-style: preserve-3d;
-    -o-transition: -o-transform 2s;
-    -moz-transform-style: preserve-3d;
-    -moz-transition: -moz-transform 2s;
-    cursor: pointer; }
+    cursor: pointer;
+    position: relative; }
     @media (max-width: 767px) {
       .experience-blk__company {
         width: 100%; } }
-    .experience-blk__company.is-flipped {
-      transform: rotateY(180deg);
-      -moz-transform: rotateY(180deg);
-      -webkit-transform: rotateY(180deg);
-      -o-transform: rotateY(180deg); }
     .experience-blk__company .front,
     .experience-blk__company .back {
       position: absolute;
       display: flex;
       height: 100%;
       width: 100%;
-      flex-direction: column;
-      justify-content: center;
-      padding-left: 1.5rem;
-      backface-visibility: hidden;
-      -moz-backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      -o-backface-visibility: hidden; }
+      align-items: center;
+      padding-left: 1.5rem; }
     .experience-blk__company .back {
-      transform: rotateY(180deg);
-      -moz-transform: rotateY(180deg);
-      -webkit-transform: rotateY(180deg);
-      -o-transform: rotateY(180deg);
       height: 100%;
       overflow-y: scroll;
       background: #000;
@@ -900,7 +875,8 @@ p {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); }
       .experience-blk__company .back::-webkit-scrollbar-thumb:window-inactive {
         background: #007aa7; }
-    .experience-blk__company .company__readmore {
+    .experience-blk__company .company__readmore,
+    .experience-blk__company .company__readless {
       width: 40px;
       height: 40px;
       border-radius: 50%;
@@ -915,9 +891,11 @@ p {
       justify-content: center;
       transition: all .3s ease-out;
       cursor: pointer; }
-      .experience-blk__company .company__readmore:hover {
+      .experience-blk__company .company__readmore:hover,
+      .experience-blk__company .company__readless:hover {
         transform: scale(1) translate(0, -40%); }
-      .experience-blk__company .company__readmore i {
+      .experience-blk__company .company__readmore i,
+      .experience-blk__company .company__readless i {
         color: #fff;
         font-size: 1.5rem; }
 
@@ -1014,110 +992,5 @@ footer {
   .container-fluid {
     padding-right: 100px;
     padding-left: 100px; } }
-.wrapper-flip {
-  width: 80%;
-  padding: 4%;
-  margin: 20px auto;
-  background: #fff; }
-
-.wrapper-flip.cards {
-  background: 0;
-  width: 88%;
-  padding: 20px 0 0 0; }
-
-.container-flip {
-  position: relative;
-  float: left;
-  width: 48%;
-  height: 260px;
-  margin: 10px 0 10px 4%;
-  background: #fff;
-  /* Set the depth of the elements */
-  -webkit-perspective: 800px;
-  -moz-perspective: 800px;
-  -o-perspective: 800px;
-  perspective: 800px; }
-
-.container-flip:first-child {
-  margin-left: 0; }
-
-.card {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  cursor: pointer;
-  /* Set the transition effects */
-  -webkit-transition: -webkit-transform 0.4s;
-  -moz-transition: -moz-transform 0.4s;
-  -o-transition: -o-transform 0.4s;
-  transition: transform 0.4s;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transform-style: preserve-3d; }
-
-.card.flipped {
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
-  transform: rotateY(180deg); }
-
-.card .front,
-.card .back {
-  display: block;
-  height: 100%;
-  width: 100%;
-  line-height: 260px;
-  color: white;
-  text-align: center;
-  font-size: 4em;
-  position: absolute;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -o-backface-visibility: hidden;
-  backface-visibility: hidden;
-  box-shadow: 3px 5px 20px 2px rgba(0, 0, 0, 0.25); }
-
-.card .back {
-  width: 94%;
-  padding-left: 3%;
-  padding-right: 3%;
-  font-size: 16px;
-  text-align: left;
-  line-height: 25px; }
-
-.formItem:first-child {
-  margin-top: 20px; }
-
-.card .back label {
-  display: inline-block;
-  width: 70px;
-  text-align: left; }
-
-.card .front {
-  background: #222222; }
-
-.card .back {
-  background: #444444;
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
-  transform: rotateY(180deg); }
-
-.container-flip:first-child .card .front {
-  background: #228653; }
-
-.container-flip:first-child .card .back {
-  background: #007539; }
-
-.cardTitle {
-  font-size: 1.4em;
-  line-height: 1.2em;
-  margin: 0; }
-
-.content {
-  padding: 4%;
-  font-weight: 100;
-  text-align: left; }
 
 /*# sourceMappingURL=teijo.css.map */
