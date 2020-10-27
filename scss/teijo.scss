@@ -27,8 +27,8 @@ html {
     padding-right: 45px;
     padding-left: 45px;
     @include mobile {
-        padding-right: 0;
-        padding-left: 0;
+        padding-right: 15px;
+        padding-left: 15px;
     }
     @include extra-large {
         max-width: 1800px;
@@ -68,7 +68,10 @@ p {
 
 .parallel__img-blk {
     position: relative;
-    height: 90vh;
+    height: 38rem;
+    @include mobile {
+        height: 61rem;
+    }
     figure {
         position: absolute;
         top: 0;
@@ -97,13 +100,24 @@ p {
 // Header and Banner section starts
 .home-blk {
     height: 100vh;
-    background: #000;
     color: #fff;
-    background-image: url(../images/banner-img.jpg);
+    background: url(../images/banner-img.jpg) #171717 center no-repeat;
+    background-size: cover;
     width: 100%;
+    @include mobile {
+        background-size: auto;
+        background-position: right;
+    }
 }
 
 .header-blk {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    color: #fff;
+    padding: 2.5rem;
     &__logo {
         img {
             max-width: rem(120);
@@ -133,16 +147,8 @@ p {
         }
     }
     &.fixed-header {
-        position: fixed;
-        width: 100%;
-        left: 0;
-        top: 0;
-        background: #000;
-        z-index: 20;
-        color: #fff;
-        padding: 2.5rem;
-        transition: all .3s ease-out;
-        @include box-shadow(0px 10px 16px -16px rgba(255, 255, 255, 0.75));
+        background: #000; // transition: all .3s ease-out;
+        @include box-shadow(0px 10px 16px -16px rgba(255, 255, 255, 0.75)); // height: 3rem;
         h1 {
             margin: 0.4em 0;
         }
@@ -158,9 +164,15 @@ p {
 .banner-blk {
     &__text {
         font-family: 'montserratregular';
-        margin-top: 18%;
+        padding-top: 20%;
+        @include mobile {
+            padding-top: 100%;
+        }
         h2 {
             font-size: rem(40);
+            @include mobile {
+                font-size: rem(30);
+            }
         }
         h4 {
             font-size: rem(26);
@@ -170,11 +182,17 @@ p {
             display: inline-block;
             margin: 0 auto;
             letter-spacing: 0.05em;
-            animation: typing 3.5s steps(18, end),
+            animation: typing 3.5s steps(24, end),
             blink-caret .5s step-end infinite;
+            @include mobile {
+                font-size: rem(20);
+            }
         }
         h5 {
             font-size: rem(26);
+            @include mobile {
+                font-size: rem(20);
+            }
         }
     }
 }
@@ -237,6 +255,9 @@ p {
         margin-top: 15px;
         overflow: visible;
         width: 60%;
+        @include mobile {
+            width: 100%;
+        }
         &-bar {
             @include border-radius(0);
             position: relative;
@@ -269,22 +290,47 @@ p {
     &__company {
         border: solid 2px #fff;
         width: 80%;
+        height: 7rem;
+        cursor: pointer;
         position: relative;
-        .company__readmore {
+        @include mobile {
+            width: 100%;
+        }
+        .front,
+        .back {
+            position: absolute;
+            display: flex;
+            height: 100%;
+            width: 100%;
+            align-items: center;
+            padding-left: 1.5rem;
+        }
+        .back {
+            height: 100%;
+            overflow-y: scroll;
+            background: #000;
+            display: block;
+            padding: 1rem 1.5rem;
+            @include scrollbar;
+        }
+        .company__readmore,
+        .company__readless {
             width: 40px;
-            text-align: center;
             height: 40px;
             border-radius: 50%;
             background: #007aa7;
             margin-left: 2rem;
             position: absolute;
-            top: 35%;
             right: 25px;
-            transform: scale(1);
+            top: 50%;
+            transform: scale(1) translate(0, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: all .3s ease-out;
             cursor: pointer;
             &:hover {
-                transform: scale(1.1);
+                transform: scale(1) translate(0, -40%);
             }
             i {
                 color: #fff;
@@ -292,6 +338,8 @@ p {
             }
         }
     }
+
+
 }
 
 //experience block end
@@ -300,7 +348,7 @@ p {
     background: #000;
     padding: 3rem 0;
     &__icons {
-        a {
+        button {
             background: #000;
             height: 75px;
             width: 75px;
@@ -314,6 +362,22 @@ p {
             transition: all .3s ease-out;
             &:hover {
                 transform: scale(1.1);
+            }
+            &.active {
+                border: 0;
+                &:before {
+                    content: "";
+                    border: 8px solid rgba(0, 171, 234, 0.36);
+                    border-radius: 50%;
+                    height: 75px;
+                    width: 75px;
+                    position: absolute;
+                    -webkit-animation: pulsate 1.6s ease-out;
+                    animation: pulsate 1.6s ease-out;
+                    -webkit-animation-iteration-count: infinite;
+                    animation-iteration-count: infinite;
+                    opacity: 0.0;
+                }
             }
         }
         img {
@@ -339,6 +403,14 @@ p {
                 transform: scale(1.01);
             }
         }
+        .other-art {
+            figure {
+                height: 26rem;
+                @include mobile {
+                    height: 35rem;
+                }
+            }
+        }
     }
 }
 
@@ -347,7 +419,10 @@ p {
 .contact-blk {
     position: relative;
     .parallel__img-blk {
-        height: 80vh;
+        height: 31rem;
+        @include mobile {
+            height: 46rem;
+        }
     }
     &__content {
         position: absolute;
@@ -391,8 +466,5 @@ footer {
     .container-fluid {
         padding-right: 100px;
         padding-left: 100px;
-    }
-    .comit-container {
-        padding: 3rem 5rem;
     }
 }
