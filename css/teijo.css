@@ -857,7 +857,10 @@ p {
       .experience-blk__company {
         width: 100%; } }
     .experience-blk__company.is-flipped {
-      transform: rotateY(180deg); }
+      transform: rotateY(180deg);
+      -moz-transform: rotateY(180deg);
+      -webkit-transform: rotateY(180deg);
+      -o-transform: rotateY(180deg); }
     .experience-blk__company .front,
     .experience-blk__company .back {
       position: absolute;
@@ -867,9 +870,15 @@ p {
       flex-direction: column;
       justify-content: center;
       padding-left: 1.5rem;
-      backface-visibility: hidden; }
+      backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      -o-backface-visibility: hidden; }
     .experience-blk__company .back {
       transform: rotateY(180deg);
+      -moz-transform: rotateY(180deg);
+      -webkit-transform: rotateY(180deg);
+      -o-transform: rotateY(180deg);
       height: 100%;
       overflow-y: scroll;
       background: #000;
