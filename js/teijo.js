@@ -51,3 +51,8 @@ $("#other-art").on('click', function () {
 $('.experience-blk__content').on('click', '.experience-blk__company', function () {
     $(this).toggleClass('is-flipped');
 });
+
+
+$('.card').click(function () {
+    $(this).toggleClass('flipped');
+});
