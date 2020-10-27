@@ -48,11 +48,12 @@ $("#other-art").on('click', function () {
 //card.addEventListener('click', function () {
 //    card.classList.toggle('is-flipped');
 //});
-$('.experience-blk__content').on('click', '.experience-blk__company', function () {
-    $(this).toggleClass('is-flipped');
+$('.back').hide();
+$('.company__readmore').on('click', function () {
+    $(this).parent('.front').hide(500);
+    $(this).parent('.front').siblings('.back').show(500);
 });
-
-
-$('.card').click(function () {
-    $(this).toggleClass('flipped');
+$('.company__readless').on('click', function () {
+    $(this).parent('.back').hide(500);
+    $(this).parent('.back').siblings('.front').show(500);
 });
