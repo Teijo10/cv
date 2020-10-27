@@ -679,11 +679,14 @@ p {
 
 .home-blk {
   height: 100vh;
-  background: #000;
   color: #fff;
-  background-image: url(../images/banner-img.jpg);
-  background-size: 100%;
+  background: url(../images/banner-img.jpg) #171717 center no-repeat;
+  background-size: cover;
   width: 100%; }
+  @media (max-width: 767px) {
+    .home-blk {
+      background-size: auto;
+      background-position: right; } }
 
 .header-blk {
   position: fixed;
@@ -728,6 +731,9 @@ p {
 .banner-blk__text {
   font-family: 'montserratregular';
   padding-top: 20%; }
+  @media (max-width: 767px) {
+    .banner-blk__text {
+      padding-top: 100%; } }
   .banner-blk__text h2 {
     font-size: 2.5rem; }
     @media (max-width: 767px) {
@@ -801,6 +807,9 @@ p {
     margin-top: 15px;
     overflow: visible;
     width: 60%; }
+    @media (max-width: 767px) {
+      .skills-blk .progress {
+        width: 100%; } }
     .skills-blk .progress-bar {
       -webkit-border-radius: 0;
       -moz-border-radius: 0;
@@ -822,7 +831,11 @@ p {
         z-index: 1; }
 
 .experience-blk {
-  position: relative; }
+  position: relative;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+  -o-perspective: 1000px;
+  -moz-perspective: 1000px; }
   .experience-blk__content {
     position: absolute;
     padding: 3rem 0;
@@ -832,8 +845,17 @@ p {
     width: 80%;
     height: 7rem;
     transition: transform 2s;
+    -webkit-transition: -webkit-transform 2s;
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    -o-transition: -o-transform 2s;
+    -moz-transform-style: preserve-3d;
+    -moz-transition: -moz-transform 2s;
     cursor: pointer; }
+    @media (max-width: 767px) {
+      .experience-blk__company {
+        width: 100%; } }
     .experience-blk__company.is-flipped {
       transform: rotateY(180deg); }
     .experience-blk__company .front,
@@ -871,19 +893,21 @@ p {
         background: #007aa7; }
     .experience-blk__company .company__readmore {
       width: 40px;
-      text-align: center;
       height: 40px;
       border-radius: 50%;
       background: #007aa7;
       margin-left: 2rem;
       position: absolute;
-      top: 35%;
       right: 25px;
-      transform: scale(1);
+      top: 50%;
+      transform: scale(1) translate(0, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       transition: all .3s ease-out;
       cursor: pointer; }
       .experience-blk__company .company__readmore:hover {
-        transform: scale(1.1); }
+        transform: scale(1) translate(0, -40%); }
       .experience-blk__company .company__readmore i {
         color: #fff;
         font-size: 1.5rem; }
@@ -940,6 +964,9 @@ p {
       transform: scale(1.01); }
   .portfolio-blk__work .other-art figure {
     height: 26rem; }
+    @media (max-width: 767px) {
+      .portfolio-blk__work .other-art figure {
+        height: 35rem; } }
 
 .contact-blk {
   position: relative; }
