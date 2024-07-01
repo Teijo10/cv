@@ -652,10 +652,10 @@ p {
 
 .parallel__img-blk {
   position: relative;
-  height: 38rem; }
+  height: 42rem; }
   @media (max-width: 767px) {
     .parallel__img-blk {
-      height: 61rem; } }
+      height: 66rem; } }
   .parallel__img-blk figure {
     position: absolute;
     top: 0;
