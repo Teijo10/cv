@@ -57,3 +57,13 @@ $('.company__readless').on('click', function () {
     $(this).parent('.back').hide(500);
     $(this).parent('.back').siblings('.front').show(500);
 });
+
+
+const glow=document.querySelector(".cursor-glow");
+
+document.addEventListener("mousemove",(e)=>{
+
+glow.style.left=e.clientX+"px";
+glow.style.top=e.clientY+"px";
+
+});
