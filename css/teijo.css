@@ -800,7 +800,8 @@ p {
     border-right: 2px solid #fff;
     white-space: nowrap;
     display: inline-block;
-    margin: 0 auto;
+    text-transform: uppercase;
+    margin: 1rem auto;
     letter-spacing: 0.05em;
     animation: typing 3.5s steps(24, end), blink-caret 0.5s step-end infinite; }
     @media (max-width: 767px) {
